@@ -1,8 +1,12 @@
 import './Card.css'
+import useSound from 'use-sound';
 
 const Cards = ({card, handleChoice, flipped, disabled}) => {
+  const [play] = useSound(process.env.PUBLIC_URL + "/audio/flip-card.mp3");
+
   const handleClick = () => {
     if (!disabled) {
+      play();
       handleChoice(card);
     }
   }
@@ -10,10 +14,10 @@ const Cards = ({card, handleChoice, flipped, disabled}) => {
   return (  
     <div className="card">
       <div className={flipped ? "flipped" : ""}>
-        <img className="front" src={card.src} alt="card front" />
+        <img className="front" src={process.env.PUBLIC_URL + card.src} alt="card front" />
         <img 
           className="back" 
-          src="./img/cover.png" 
+          src={process.env.PUBLIC_URL + "/img/cover.png"} 
           onClick={handleClick} 
           alt="card back" />
       </div>

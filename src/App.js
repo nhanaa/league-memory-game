@@ -1,16 +1,17 @@
 import './App.css';
 import {useEffect, useState} from 'react';
 import Card from './components/Card';
+import useSound from 'use-sound';
 
 const cardImages = [
-  {"src" : "./img/jinx.png", matched: false},
-  {"src" : "./img/caitlyn.png", matched: false},
-  {"src" : "./img/blitzcrank.png", matched: false},
-  {"src" : "./img/kindred.png", matched: false},
-  {"src" : "./img/taric.png", matched: false},
-  {"src" : "./img/teemo.png", matched: false},
-  {"src" : "./img/lulu.png", matched: false},
-  {"src" : "./img/zoe.png", matched: false},
+  {"src" : "/img/jinx.png", matched: false},
+  {"src" : "/img/caitlyn.png", matched: false},
+  {"src" : "/img/blitzcrank.png", matched: false},
+  {"src" : "/img/kindred.png", matched: false},
+  {"src" : "/img/taric.png", matched: false},
+  {"src" : "/img/teemo.png", matched: false},
+  {"src" : "/img/lulu.png", matched: false},
+  {"src" : "/img/zoe.png", matched: false},
 ]
 
 function App() {
@@ -20,8 +21,11 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
 
+  const [play] = useSound(process.env.PUBLIC_URL + "/audio/happy-journey.mp3");
+
   // shuffle cards
   const shuffleCards = () => {
+    play();
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({...card, id: Math.random()}));
@@ -39,7 +43,7 @@ function App() {
 
   // start the game automatically
   useEffect(() => {
-    shuffleCards();
+    // shuffleCards();
   }, [])
 
   // compare 2 selected cards
@@ -86,7 +90,7 @@ function App() {
           />
         ))}
       </div>
-      <p>Turns: {turns}</p>
+      <p className="turns">Turns: {turns}</p>
     </div>
   );
 }

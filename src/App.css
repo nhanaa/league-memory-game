@@ -7,7 +7,7 @@ h1 {
   margin: 15px 15px;
 }
 
-button {
+.new-game {
   background: none;
   border: 2px solid #fff;
   padding: 6px 12px;
@@ -18,7 +18,7 @@ button {
   cursor: url("../public/league\ of\ legends\ legacy.png"), auto;
 }
 
-button:hover {
+.new-game:hover {
   background: #41accf;
   color: #d53f3f;
 }
@@ -30,4 +30,28 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
+}
+
+.turns {
+  font-size: 1.5em;
+}
+
+@media screen and (max-width: 900px) {
+  .card-grid {
+    max-width: 70%;
+    margin-top: 40px;
+  }
+  .turns {
+    font-size: 2.0em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card-grid {
+    max-width: 90%;
+    margin-top: 30px;
+  }
+  .turns {
+    font-size: 2.5em;
+  }
 }

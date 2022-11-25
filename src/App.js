@@ -21,10 +21,11 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
 
-  const [play] = useSound(process.env.PUBLIC_URL + "/audio/happy-journey.mp3");
+  const [play, {stop}] = useSound(process.env.PUBLIC_URL + "/audio/happy-journey.mp3");
 
   // shuffle cards
   const shuffleCards = () => {
+    stop();
     play();
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)

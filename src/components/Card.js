@@ -2,10 +2,11 @@ import './Card.css'
 import useSound from 'use-sound';
 
 const Cards = ({card, handleChoice, flipped, disabled}) => {
-  const [play] = useSound(process.env.PUBLIC_URL + "/audio/flip-card.mp3");
+  const [play, {stop}] = useSound(process.env.PUBLIC_URL + "/audio/flip-card.mp3");
 
   const handleClick = () => {
     if (!disabled) {
+      stop();
       play();
       handleChoice(card);
     }

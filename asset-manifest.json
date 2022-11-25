@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/league-memory-game/static/css/main.c15e558d.css",
-    "main.js": "/league-memory-game/static/js/main.9c2babe5.js",
+    "main.js": "/league-memory-game/static/js/main.8d411b4d.js",
     "static/js/845.4e246ff1.chunk.js": "/league-memory-game/static/js/845.4e246ff1.chunk.js",
     "index.html": "/league-memory-game/index.html",
     "main.c15e558d.css.map": "/league-memory-game/static/css/main.c15e558d.css.map",
-    "main.9c2babe5.js.map": "/league-memory-game/static/js/main.9c2babe5.js.map",
+    "main.8d411b4d.js.map": "/league-memory-game/static/js/main.8d411b4d.js.map",
     "845.4e246ff1.chunk.js.map": "/league-memory-game/static/js/845.4e246ff1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c15e558d.css",
-    "static/js/main.9c2babe5.js"
+    "static/js/main.8d411b4d.js"
   ]
 }

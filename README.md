@@ -1,5 +1,5 @@
 # League of Legends theme memory web game
-Lol theme memory web game is a web-based game using ReactJS framework. It utilizes Lol emotes found on the internet.
+Lol theme memory web game is a web-based game using ReactJS framework. It utilizes Lol emotes found on the internet. This project was created mainly to practice my ReactJS skills. 
 
 ## Access
 A published version can be accessed through the link [Lol Memory Game]( https://nhanaa.github.io/league-memory-game/) 

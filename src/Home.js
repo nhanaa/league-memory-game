@@ -17,13 +17,15 @@ const cardImages = [
 const Home = () => {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
+  const [matches, setMatches] = useState(0);
+  const [highestScore, setHighestScore] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
 
   const [play, {stop}] = useSound(process.env.PUBLIC_URL + "/audio/happy-journey.mp3");
 
-  // shuffle cards
+  // Shuffle cards
   const shuffleCards = () => {
     stop();
     play();
@@ -35,19 +37,20 @@ const Home = () => {
     setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
+    setMatches(0);
   }
 
-  // handle a choice
+  // Handle a choice
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   }
 
-  // start the game automatically
+  // Start the game automatically
   useEffect(() => {
     // shuffleCards();
   }, [])
 
-  // compare 2 selected cards
+  // Compare 2 selected cards
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true);
@@ -60,10 +63,17 @@ const Home = () => {
               return card;
             }
           })
-        })
+        });
+        setMatches(prevMaches => prevMaches + 1);
         resetTurn();
       } else {
         setTimeout(() => resetTurn(), 1000);
+      }
+    }
+    // Check if the game is finished, then update highest score
+    if (matches === 8) {
+      if (turns < highestScore) {
+        setHighestScore(turns);
       }
     }
   }, [choiceOne, choiceTwo])
@@ -90,7 +100,10 @@ const Home = () => {
           />
         ))}
       </div>
-      <p className="turns">Turns: {turns}</p>
+      <div className="stats">
+        <span className="turns">Turns: {turns}</span>
+        <span className="highest-score">Highest Score: {highestScore}</span>
+      </div>
     </div>
   );
 }

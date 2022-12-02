@@ -1,0 +1,52 @@
+.navbar {
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    background-color: #03121f;
+    cursor: url("../../public/league\ of\ legends\ legacy.png"), auto;
+}
+
+/* Logo section */
+.navbar .logo-title {
+    width: 270px;
+}
+
+.navbar .logo-title .logo {
+    display: inline;
+    width: 50px;
+    height: auto;
+    float: left;
+}
+
+.navbar .logo-title span {
+    display: inline;
+    width: auto;
+    height: auto;
+    float: right;
+    margin: 10px 10px;
+    font-size: 1.5em;
+}
+
+/* Panel section*/
+.navbar .panel {
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    margin: 10px 10px;
+    font-size: 1.2em;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+
+.navbar a:hover {
+    
+}
+
+
+

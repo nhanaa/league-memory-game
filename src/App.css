@@ -3,10 +3,6 @@
   margin: auto auto;
 }
 
-h1 {
-  margin: 15px 15px;
-}
-
 .new-game {
   background: none;
   border: 2px solid #fff;
@@ -16,6 +12,7 @@ h1 {
   font-weight: bold;
   font-size: 1em;
   cursor: url("../public/league\ of\ legends\ legacy.png"), auto;
+  margin-top: 20px;
 }
 
 .new-game:hover {

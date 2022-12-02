@@ -1,6 +1,7 @@
 import './App.css';
 import {useEffect, useState} from 'react';
 import Card from './components/Card';
+import Navbar from './components/Navbar';
 import useSound from 'use-sound';
 
 const cardImages = [
@@ -78,7 +79,7 @@ function App() {
 
   return (
     <div>
-      <h1>League of Legends Memory Match</h1>
+      <Navbar />
       <button className="new-game" onClick={shuffleCards}>New Game</button>
       <div className="card-grid">
         {cards.map(card => (

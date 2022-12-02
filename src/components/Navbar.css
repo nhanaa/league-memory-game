@@ -25,6 +25,7 @@
     float: right;
     margin: 10px 10px;
     font-size: 1.5em;
+    font-weight: bold;
 }
 
 /* Panel section*/
@@ -45,7 +46,9 @@
 }
 
 .navbar a:hover {
-    
+    background: #41accf;
+    color: #d53f3f;
+    cursor: url("../../public/league\ of\ legends\ legacy.png"), auto;
 }
 
 

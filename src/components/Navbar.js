@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -9,9 +9,9 @@ const Navbar = () => {
                 <span>Memory Match</span>
             </div>
             <div className="panel">
-                <a href="/">Home</a>
-                <a href="/options">Options</a>
-                <a href="/about">About</a>
+                <Link to="/">Home</Link>
+                <Link to="/options">Options</Link>
+                <Link to="/about">About</Link>
             </div>
         </div>
     );

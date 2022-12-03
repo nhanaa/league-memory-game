@@ -1,7 +1,7 @@
 import './Home.css';
 import {useEffect, useState} from 'react';
 import Card from './components/Card';
-import useSound from 'use-sound';
+// import useSound from 'use-sound';
 
 const cardImages = [
   {"src" : "/img/jinx.png", matched: false},
@@ -14,7 +14,7 @@ const cardImages = [
   {"src" : "/img/zoe.png", matched: false},
 ]
 
-const Home = () => {
+const Home = ({playBGM, stopBGM, musicActive}) => {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [matches, setMatches] = useState(0);
@@ -23,12 +23,14 @@ const Home = () => {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
 
-  const [play, {stop}] = useSound(process.env.PUBLIC_URL + "/audio/happy-journey.mp3");
+  // const [play, {stop}] = useSound(process.env.PUBLIC_URL + "/audio/happy-journey.mp3");
 
   // Shuffle cards
   const shuffleCards = () => {
-    stop();
-    play();
+    stopBGM();
+    if (musicActive) {
+      playBGM();
+    }
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({...card, id: Math.random()}));
@@ -48,7 +50,8 @@ const Home = () => {
   // Start the game automatically
   useEffect(() => {
     // shuffleCards();
-  }, [])
+    console.log(musicActive);
+  }, [musicActive]);
 
   // Compare 2 selected cards
   useEffect(() => {
@@ -70,13 +73,20 @@ const Home = () => {
         setTimeout(() => resetTurn(), 1000);
       }
     }
-    // Check if the game is finished, then update highest score
+  }, [choiceOne, choiceTwo])
+
+  // Game finished. Check to update highest score.
+  useEffect(() => {
     if (matches === 8) {
-      if (turns < highestScore) {
+      if (highestScore === 0) {
+        setHighestScore(turns);
+        return;
+      }
+      if (turns < highestScore ) {
         setHighestScore(turns);
       }
     }
-  }, [choiceOne, choiceTwo])
+  }, [matches, highestScore, turns])
 
   // reset choices and increase turn
   const resetTurn = () => {

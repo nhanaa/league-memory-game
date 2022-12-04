@@ -1,0 +1,10 @@
+.about {
+    text-align: left;
+    height: auto;
+}
+
+.about p {
+    width: 50%;
+    margin: auto auto;
+    margin-top: 20px;
+}

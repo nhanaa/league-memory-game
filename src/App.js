@@ -13,6 +13,11 @@ function App() {
   const [play, {stop}] = useSound(process.env.PUBLIC_URL + "/audio/happy-journey.mp3");
   const [musicActive, setMusicActive] = useState(true); 
 
+  const toggleMusic = () => {
+    setMusicActive(!musicActive);
+    stop();
+  }
+
   return (
     <Router>
       <div className="App">
@@ -20,7 +25,7 @@ function App() {
         <div className="App-content">
           <Routes>
             <Route exact path="/" element={<Home playBGM={play} stopBGM={stop} musicActive={musicActive}/>} />
-            <Route path="/options" element={<Options handleToggle={() => setMusicActive(!musicActive)} isOn={musicActive}/>}/>
+            <Route path="/options" element={<Options handleToggle={toggleMusic} isOn={musicActive}/>}/>
             <Route path="/about" element={<About/>}/>
           </Routes>
         </div>
